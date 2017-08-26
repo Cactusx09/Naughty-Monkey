@@ -11,12 +11,12 @@ $(document).ready(function(){
 			body.siblings('._active').addClass('_back');
 			setTimeout(function(){
 				body.siblings('._active').removeClass('_active _back');
-			},600);
+			},400);
 		}else{
 			body.addClass('_back');
 			setTimeout(function(){
 				body.removeClass('_active _back');
-			},600);
+			},400);
 		}
 	});
 	$('.header__menu_close,.header__menu_continue').click(function(e){
@@ -24,7 +24,7 @@ $(document).ready(function(){
 		menu.addClass('_back');
 		setTimeout(function(){
 			menu.removeClass('_active');
-		},600);
+		},400);
 	});
 
 	//selects
@@ -62,6 +62,22 @@ $(document).ready(function(){
 			input = el.parent('.s_item__refine_sizes').find('input');
 		el.addClass('_current').siblings().removeClass('_current');
 		input.val(size);
+	});
+
+	//hamb mobile
+	$('.header__nav_hamb').click(function(){
+		var hamb = $(this),
+			nav = hamb.prev('nav');
+		if(!hamb.hasClass('_active')){
+			hamb.addClass('_active');
+			nav.addClass('_active');
+		}else{
+			nav.addClass('_back');
+			hamb.removeClass('_active');
+			setTimeout(function(){
+				nav.removeClass('_active _back');
+			},300);
+		}
 	});
 
 	//look slider
